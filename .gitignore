@@ -1,1 +1,3 @@
 .vagrant
+/shared/root
+!/shared/root/.gitignore

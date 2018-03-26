@@ -1,3 +1,4 @@
 .vagrant
 /shared/root
 !/shared/root/.gitignore
+shared/src/.tags

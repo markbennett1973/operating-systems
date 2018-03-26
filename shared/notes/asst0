@@ -1,0 +1,12 @@
+# Building my first kernel:
+
+cd ~/shared/src/kern/conf
+./config DUMBVM
+cd ~/shared/src/kern/compile/DUMBVM
+bmake depend
+bmake
+bmake install
+
+# 4.4 - Source Exploration Exercises
+
+1. /src/kern/main/main.c::boot

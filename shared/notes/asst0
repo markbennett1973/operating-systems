@@ -7,6 +7,53 @@ bmake depend
 bmake
 bmake install
 
+# Running the kernel
+
+~/shared/boot
+
+
 # 4.4 - Source Exploration Exercises
 
 1. /src/kern/main/main.c::boot
+   Initialised subsystems:
+     ram
+     proc
+     thread
+     hardclock
+     vfs
+     kheap
+     mainbus
+     vm
+     cpus
+
+2. dumbvm - it doesn't actually do anything at all
+
+3. sempahore and lock and read/write lock
+
+4. P (from synch.c)
+
+   Multiple threads creted in thread_start_cpus:
+
+	for (i=0; i<num_cpus - 1; i++) {
+		P(cpu_startup_sem);
+	}
+
+
+5. ltrace_debug
+    - writes straight to the bus
+
+6. copy memory from user addresses to kernel address and vice versa
+   they add some safety to the primitive memory copying functions
+
+7. a thread which has exited, but not yet been deleted (cleaned up) by the kernel
+
+8. a sleeping thread will stop until something else wakes it up
+   a yielding thread will let other threads run, but could be restarted any time by the kernel thread scheduler
+
+9. machine-dependent code needs to be written differently for different machine architectures. Machine independent code can run on any architecture.
+
+   Machine dependent code would go in src/kern/arch under the relevant architecture subdirectory (mips, x86, amd64)
+   Machine independent code goes in other functionally-dependent subdirectories in src/kern, e.g. src/kern/fs, src/kern/thread, src/kern/vm)
+
+10. cpu_irqon, cpu_irqoff, mainbus_interrupt
+

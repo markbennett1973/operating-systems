@@ -1,3 +1,4 @@
 #!/bin/bash
-sys161 -c sys161.conf root/kernel
+cd ~/root
+sys161 -c sys161.conf kernel
 
